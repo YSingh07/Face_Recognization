@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Face Recognition System</h1>
+        <p>Flask + OpenCV SFace + Supabase</p>
+
+        <section class="card">
+            <h2>1. Register New Person</h2>
+
+            <label for="username">Unique username</label>
+            <input id="username" type="text"
+                   placeholder="Enter username">
+
+            <button id="startRegistration">
+                Start Registration Camera
+            </button>
+
+            <button id="saveRegistration" disabled>
+                Save Person
+            </button>
+        </section>
+
+        <section class="card">
+            <h2>2. Recognize Known Faces</h2>
+            <button id="startRecognition">
+                Start Recognition Camera
+            </button>
+
+            <button id="stopCamera" disabled>
+                Stop Camera
+            </button>
+        </section>
+
+        <section class="card">
+            <video id="camera" autoplay playsinline muted></video>
+            <canvas id="canvas" hidden></canvas>
+            <p id="status">Camera is stopped.</p>
+        </section>
+
+        <section class="card">
+            <h2>Registered People</h2>
+            <button id="refreshPeople">Refresh List</button>
+            <ul id="peopleList"></ul>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
